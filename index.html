@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Roblox Clone - Dark Mode</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Roboto", Arial, sans-serif;
+    background-color: #0b0c0d;
+    color: #e6e6e6;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Sidebar */
+  nav.sidebar {
+    width: 72px;
+    background-color: #050505;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+  }
+
+  nav.sidebar a {
+    color: #818181;
+    text-decoration: none;
+    margin: 20px 0;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  nav.sidebar a:hover, nav.sidebar a.active {
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+
+  /* Main content */
+  main.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top navbar */
+  header.topbar {
+    height: 48px;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    justify-content: space-between;
+  }
+
+  .topbar .logo {
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .topbar .search {
+    flex-grow: 1;
+    margin: 0 20px;
+    position: relative;
+  }
+
+  .topbar input[type="search"] {
+    width: 100%;
+    background-color: #121212;
+    border: none;
+    border-radius: 4px;
+    color: #eee;
+    padding: 6px 36px 6px 12px;
+    font-size: 14px;
+  }
+
+  .topbar .search svg {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #999;
+    width: 16px;
+    height: 16px;
+  }
+
+  .topbar .user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .topbar .user img.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  /* Games Grid */
+  section.games-grid {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: 16px;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+
+  .game-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .game-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.9);
+  }
+
+  .game-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    background-color: #111;
+  }
+
+  .game-info {
+    padding: 12px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .game-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #eee;
+  }
+
+  .game-subtitle {
+    font-size: 13px;
+    color: #888;
+  }
+
+  /* Scrollbar styling for games grid */
+  section.games-grid::-webkit-scrollbar {
+    width: 8px;
+  }
+  section.games-grid::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav.sidebar {
+      display: none;
+    }
+    header.topbar {
+      padding: 0 8px;
+    }
+    .topbar .search {
+      margin: 0 8px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="sidebar" aria-label="Main navigation">
+    <a href="#" class="active" title="Home" aria-current="page">🏠</a>
+    <a href="#" title="Games">🎮</a>
+    <a href="#" title="Avatar">👤</a>
+    <a href="#" title="Messages">💬</a>
+    <a href="#" title="Settings">⚙️</a>
+  </nav>
+
+  <main class="content" role="main">
+    <header class="topbar">
+      <div class="logo" onclick="location.reload()">ROBLOX</div>
+      <div class="search" role="search">
+        <input type="search" placeholder="Search" aria-label="Search games"/>
+        <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35m2.1-5.25A7.5 7.5 0 1 1 6 9a7.5 7.5 0 0 1 12.75 2.4z" stroke="#999" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="user">
+        <img src="https://i.pravatar.cc/32" alt="User Avatar" class="avatar" />
+        <span>Player</span>
+      </div>
+    </header>
+
+    <section class="games-grid" aria-label="Game list">
+      <!-- Example game cards -->
+      <article class="game-card" tabindex="0" role="button" onclick="alert('Launch Game 1');">
+        <img src="https://via.placeholder.com/320x180?text=Game+1" alt="Game 1 cover" class="game-image" />
+        <div class="game-info">
+          <h3 class="game-title">Baseplate</h3>
+          <p class="game-subtitle">The classic starter place</p>
+        </div>
+      </article>
+      <article class="game-card" tabindex="0" role="button" onclick="alert('Launch Game 2');">
+        <img src="https://via.placeholder.com/320x180?text=Game+2" alt="Game 2 cover" class="game-image" />
+        <div class="game-info">
+          <h3 class="game-title">Adventure Quest</h3>
+          <p class="game-subtitle">Explore and conquer</p>
+        </div>
+      </article>
+      <article class="game-card" tabindex="0" role="button" onclick="alert('Launch Game 3');">
+        <img src="https://via.placeholder.com/320x180?text=Game+3" alt="Game 3 cover" class="game-image" />
+        <div class="game-info">
+          <h3 class="game-title">Speed Run</h3>
+          <p class="game-subtitle">Fast-paced parkour</p>
+        </div>
+      </article>
+      <article class="game-card" tabindex="0" role="button" onclick="alert('Launch Game 4');">
+        <img src="https://via.placeholder.com/320x180?text=Game+4" alt="Game 4 cover" class="game-image" />
+        <div class="game-info">
+          <h3 class="game-title">Tycoon Empire</h3>
+          <p class="game-subtitle">Build your fortune</p>
+        </div>
+      </article>
+      <!-- Add more cards as needed -->
+    </section>
+  </main>
+
+</body>
+</html>

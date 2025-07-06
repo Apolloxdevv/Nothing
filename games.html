@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Roblox-like</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <header class="navbar">
+        <div class="logo">Roblox-like</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="game-list">
+            <h2>All Games</h2>
+            <div class="game-grid">
+                <!-- Placeholder games -->
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/150" alt="Game 1">
+                    <h3>Game 1</h3>
+                    <button onclick="playGame('https://www.roblox.com/games/1')">Play</button>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/150" alt="Game 2">
+                    <h3>Game 2</h3>
+                    <button onclick="playGame('https://www.roblox.com/games/2')">Play</button>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/150" alt="Game 3">
+                    <h3>Game 3</h3>
+                    <button onclick="playGame('https://www.roblox.com/games/3')">Play</button>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/150" alt="Game 4">
+                    <h3>Game 4</h3>
+                    <button onclick="playGame('https://www.roblox.com/games/4')">Play</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Roblox-like. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function playGame(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
